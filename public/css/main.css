@@ -1,0 +1,69 @@
+/* Applies to the whole page */
+html {
+  background-color: #F8EFBA;
+  height: 100%; 
+}
+
+/* Centers everything on the page */
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  /* Flexbox */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+
+  /* Nested Element Styles */
+  & h1 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 2.5rem;
+    margin-bottom: 10px;
+  }
+
+  /* Navigation */
+  & nav {
+    background-color: white;
+    padding: 10px;
+
+    & ul {
+      list-style-type: none;
+      padding: 0;
+    }
+
+    & li {
+      display: inline;
+      margin-right: 15px;
+    }
+
+    & a {
+      text-decoration: none;
+      color: #333;
+      font-weight: bold;
+      transition: color 0.3s ease;
+
+      &:hover {
+        border-bottom: 3px solid black; 
+      }
+    }
+  }
+
+  /* Bio Paragraph Style */
+  & p {
+    max-width: 650px; 
+    line-height: 1.8;  
+    font-size: 1.1rem;
+    color: #444;
+    background-color: whitesmoke; 
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  & img {
+    max-width: 80%;
+    height: auto;
+  }
+}

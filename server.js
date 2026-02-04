@@ -1,29 +1,59 @@
-// Import express using ESM syntax
+// Imports
 import express from 'express';
+import { fileURLToPath } from 'url';
+import path from 'path';
 
-// Create an instance of an Express application
+/**
+ * Declare Important Variables
+ */
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+
+
+
+/**
+ * Setup Express Server
+ */
 const app = express();
 
-const name = process.env.NAME; // <-- NEW
+/**
+ * Configure Express middleware
+ */
 
-// Define a route handler for the root URL ('/')
+// Set EJS as the templating engine
+app.set('view engine', 'ejs');
+
+// Tell Express where to find your templates
+app.set('views', path.join(__dirname, 'src/views'));
+
+// Serve static files from the public directory
+app.use(express.static(path.join(__dirname, 'public')));
+
+/**
+ * Routes
+ */
+/**
+ * Routes
+ */
 app.get('/', (req, res) => {
-    res.send(`Welcome, ${name}!`); // <-- UPDATED
+    const title = 'Welcome Home';
+    res.render('home', { title });
 });
 
-app.get('/new-route', (req, res) => {
-    res.send('Testing new route'); // <-- UPDATED
+app.get('/about', (req, res) => {
+    const title = 'About Me';
+    res.render('about', { title });
 });
 
-app.get('/another-new-route', (req, res) => {
-    res.send('Another new route being tested'); // <-- UPDATED
+app.get('/products', (req, res) => {
+    const title = 'Our Products';
+    res.render('products', { title });
 });
-
-
-// Define the port number the server will listen on
-const PORT = 3000;
 
 // Start the server and listen on the specified port
+const NODE_ENV = process.env.NODE_ENV || 'production';
+const PORT = process.env.PORT || 3000;
+
 app.listen(PORT, () => {
-    console.log(`Server is running on http://127.0.0.1:${PORT}`);
+    console.log(`Server is running at http://localhost:${PORT}`);
 });
