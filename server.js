@@ -120,6 +120,23 @@ app.use((req, res, next) => {
   next();
 });
 
+// Route-specific middleware that sets custom headers
+const addDemoHeaders = (req, res, next) => {
+  res.setHeader("X-Demo-Page", "true");
+  res.setHeader(
+    "X-Middleware-Demo",
+    "This header was added by route-specific middleware",
+  );
+  next();
+};
+
+// Demo page route with header middleware
+app.get("/demo", addDemoHeaders, (req, res) => {
+  res.render("demo", {
+    title: "Middleware Demo Page",
+  });
+});
+
 // Set EJS as the templating engine
 app.set("view engine", "ejs");
 
