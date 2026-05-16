@@ -16,6 +16,10 @@ body {
   min-height: 100vh;
   text-align: center;
 
+  &.blue-theme { background-color: #e3f2fd; }
+  &.green-theme { background-color: #e8f5e8; }
+  &.red-theme { background-color: #ffebee; }
+
   /* Nested Element Styles */
   & h1 {
     font-family: Georgia, 'Times New Roman', Times, serif;
