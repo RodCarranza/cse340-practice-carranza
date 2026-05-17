@@ -66,6 +66,15 @@ body {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
   }
 
+  /* Greeting style only*/
+  & .greeting {
+  background-color: transparent;
+  padding: 0;
+  border-radius: 0;
+  box-shadow: none;
+  margin: 10px 0;
+}
+
   & img {
     max-width: 80%;
     height: auto;
