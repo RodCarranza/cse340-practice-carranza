@@ -162,11 +162,6 @@ app.get("/about", (req, res) => {
   res.render("about", { title });
 });
 
-app.get("/products", (req, res) => {
-  const title = "Our Products";
-  res.render("products", { title });
-});
-
 // Course catalog list page
 app.get("/catalog", (req, res) => {
   res.render("catalog", {
