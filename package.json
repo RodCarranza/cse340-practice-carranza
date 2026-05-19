@@ -1,12 +1,14 @@
 {
-    "name": "cse340-practice-[lastname]",
+    "name": "cse340-practice-carranza",
     "dependencies": {
+        "dotenv": "^17.4.2",
         "ejs": "^4.0.1",
-        "express": "^5.2.1"
+        "express": "^5.2.1",
+        "ws": "^8.20.1"
     },
     "type": "module",
     "scripts": {
-        "dev": "nodemon --env-file=.env server.js",
+        "dev": "nodemon server.js",
         "start": "node server.js"
     },
     "devDependencies": {

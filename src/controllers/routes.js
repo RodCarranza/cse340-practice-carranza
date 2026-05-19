@@ -25,4 +25,11 @@ router.get("/test-error", testErrorPage);
 router.get("/faculty", facultyListPage);
 router.get("/faculty/:facultyId", facultyDetailPage);
 
+// Demo route for testing 500 error handling
+router.get("/demo-error", (req, res, next) => {
+  const err = new Error("Intentional server error for demonstration");
+  err.status = 500;
+  next(err);
+});
+
 export default router;
